@@ -39,9 +39,15 @@ img {
   background-color: #ffffff;
   padding: 2rem;
   min-height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   min-height: 10rem;
   margin-bottom: 1rem;
 }
@@ -52,8 +58,10 @@ img {
 }
 
 .scores {
+  display: flex;
+  flex-direction: column;
   width: 48%;
-  float: right;
+  
 }
 
 .main-title .title {
@@ -70,6 +78,9 @@ img {
 }
 
 .weapons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 10rem;
   margin-bottom: 1rem;
 }
@@ -89,3 +100,5 @@ img {
 /* Padding/margin - 1, 2, 3, 4,  */
 
 /* border: 2px solid */
+
+
