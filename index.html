@@ -4,52 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rock Paper Scissor</title>
+    <title>Rock | Paper | Scissors</title>
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="./styles/normalize.css" />
     <!-- custom css -->
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
-    <main class="container">
-      <div class="title-container">
-        <div class="main-title">
-          <h1 class="title">
-            Rock <br />
-            Paper <br />
-            scissor
-          </h1>
+    <main class="game-card">
+      <div class="game-details">
+        <div class="title-container">
+          <span>Rock</span>
+          <span>Paper</span>
+          <span>Scissors</span>
         </div>
-        <div class="scores">
-          <h2 class="score">User Score: <span>0</span></h2>
-          <h2 class="score">Computer Score: <span>0</span></h2>
+        <div class="score-container">
+          <p>User Score: <span id="user-score">0</span></p>
+          <p>Comp Score: <span id="comp-score">0</span></p>
         </div>
       </div>
       <div class="weapons-container">
-        <button class="btn-weapon">
-          <img
-            src="./assets/images/rock.png"
-            alt="rock"
-            class="btn_weapon-img"
-          />
+        <button class="btn-weapon rock" onclick="playGame('rock')">
+          <img src="./assets/images/rock1.png" alt="rock" />
         </button>
-        <button class="btn-weapon">
-          <img
-            src="./assets/images/paper.png"
-            alt="paper"
-            class="btn_weapon-img"
-          />
+        <button class="btn-weapon paper" onclick="playGame('paper')">
+          <img src="./assets/images/paper1.png" alt="paper" />
         </button>
-        <button class="btn-weapon">
-          <img
-            src="./assets/images/scissor.png"
-            alt="scissor"
-            class="btn_weapon-img"
-          />
+        <button class="btn-weapon scissors" onclick="playGame('scissors')">
+          <img src="./assets/images/scissors1.png" alt="scissors" />
         </button>
       </div>
+      <div class="result-container">
+        <p id="user-choice"></p>
+        <p id="user-choice"></p>
+        <p id="result"></p>
+      </div>
     </main>
+    <script src="/script.js"></script>
   </body>
 </html>
-
-<!-- Semantic tags - tags will help in increasing code readibilty -->
