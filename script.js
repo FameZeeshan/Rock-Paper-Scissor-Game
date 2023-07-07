@@ -1,18 +1,17 @@
 "use strict";
 
-// elements
+// Elements
 const userScoreEl = document.getElementById("user-score");
 const compScoreEl = document.getElementById("comp-score");
-
 const userChoiceEl = document.getElementById("user-choice");
 const compChoiceEl = document.getElementById("comp-choice");
 const resultEl = document.getElementById("result");
 
-// global variables
+// Global variables
 let userScore = 0;
 let compScore = 0;
 
-// functions
+// Functions
 const getCompChoice = function () {
   const weapons = ["rock", "paper", "scissors"];
   const randomNumber = Math.trunc(Math.random() * 3);
@@ -72,7 +71,7 @@ const updateScores = function (result, userChoice, compChoice) {
 };
 
 const showWinner = function (winner) {
-  // Disable the buttons
+  // Disable the weapon buttons
   const buttons = document.getElementsByClassName("btn-weapon");
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].disabled = true;
@@ -80,19 +79,54 @@ const showWinner = function (winner) {
 
   // Display the winner
   resultEl.innerText = `${winner} is the winner!`;
+};
 
-  // Reset the scores
+const resetGame = function () {
+  // Enable the weapon buttons
+  const buttons = document.getElementsByClassName("btn-weapon");
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].disabled = false;
+  }
+
+  // Reset scores and result message
   userScore = 0;
   compScore = 0;
   userScoreEl.innerText = "0";
   compScoreEl.innerText = "0";
+  resultEl.innerText = "";
+  userChoiceEl.innerText = "";
+  compChoiceEl.innerText = "";
+};
+
+const playAgain = function () {
+  // Reset scores and result message
+  userScore = 0;
+  compScore = 0;
+  userScoreEl.innerText = "0";
+  compScoreEl.innerText = "0";
+  resultEl.innerText = "";
+  userChoiceEl.innerText = "";
+  compChoiceEl.innerText = "";
+
+  // Enable the weapon buttons
+  const buttons = document.getElementsByClassName("btn-weapon");
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].disabled = false;
+  }
 };
 
 const playGame = function (weapon) {
+  // Remove active class from all buttons
+  const buttons = document.getElementsByClassName("btn-weapon");
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].classList.remove("active");
+  }
+
+  // Add active class to the clicked button
+  event.currentTarget.classList.add("active");
+
   const userChoice = weapon;
   const compChoice = getCompChoice();
   const result = getResult(userChoice, compChoice);
   updateScores(result, userChoice, compChoice);
 };
-
-// event listeners

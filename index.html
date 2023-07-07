@@ -7,7 +7,7 @@
     <title>Rock | Paper | Scissor</title>
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="./styles/normalize.css" />
-    <!-- custom css -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
@@ -16,7 +16,7 @@
         <div class="title-container">
           <span>Rock</span>
           <span>Paper</span>
-          <span>Scissors</span>
+          <span>Scissor</span>
         </div>
         <div class="score-container">
           <p>User Score: <span id="user-score">0</span></p>
@@ -38,6 +38,10 @@
         <p id="user-choice"></p>
         <p id="comp-choice"></p>
         <p id="result"></p>
+      </div>
+      <div class="button-container">
+        <button class="btn-reset" onclick="resetGame()">Reset</button>
+        <button class="btn-play-again" onclick="playAgain()">Play Again</button>
       </div>
     </main>
     <script src="/script.js"></script>
