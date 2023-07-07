@@ -1,4 +1,5 @@
-`use strict`;
+"use strict";
+
 // elements
 const userScoreEl = document.getElementById("user-score");
 const compScoreEl = document.getElementById("comp-score");
@@ -6,6 +7,7 @@ const compScoreEl = document.getElementById("comp-score");
 const userChoiceEl = document.getElementById("user-choice");
 const compChoiceEl = document.getElementById("comp-choice");
 const resultEl = document.getElementById("result");
+
 // global variables
 let userScore = 0;
 let compScore = 0;
@@ -60,7 +62,32 @@ const updateScores = function (result, userChoice, compChoice) {
   }
   userChoiceEl.innerText = `You choose ${userChoice.toUpperCase()}`;
   compChoiceEl.innerText = `Comp choose ${compChoice.toUpperCase()}`;
+
+  // Check if either user or computer has reached a score of 10
+  if (userScore === 10) {
+    showWinner("You");
+  } else if (compScore === 10) {
+    showWinner("Computer");
+  }
 };
+
+const showWinner = function (winner) {
+  // Disable the buttons
+  const buttons = document.getElementsByClassName("btn-weapon");
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].disabled = true;
+  }
+
+  // Display the winner
+  resultEl.innerText = `${winner} is the winner!`;
+
+  // Reset the scores
+  userScore = 0;
+  compScore = 0;
+  userScoreEl.innerText = "0";
+  compScoreEl.innerText = "0";
+};
+
 const playGame = function (weapon) {
   const userChoice = weapon;
   const compChoice = getCompChoice();
